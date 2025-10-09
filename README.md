@@ -88,16 +88,13 @@ graph TD
     style F fill:#252F3E,stroke:#FF9900,stroke-width:2px,color:#fff
 '''
 
-*(Diagram created using Mermaid. GitHub will automatically render this into a visual chart.)*
-
-
 ## Local Setup and Installation
 
 To run this project locally for development and testing, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/[Your-GitHub-Username]/energy-forecast-pipeline.git
+    git clone [https://github.com/](https://github.com/)[Your-GitHub-Username]/energy-forecast-pipeline.git
     cd energy-forecast-pipeline
     ```
 
