@@ -27,7 +27,7 @@ This project aims to solve that problem by creating a robust, automated pipeline
 * **Automated Data Ingestion:** The pipeline automatically fetches the latest hourly energy demand data daily from the U.S. Energy Information Administration (EIA) API.
 * **Scalable Data Storage:** Raw data is stored in a durable and cost-effective data lake using Amazon S3, while processed data is structured in a relational database on Amazon RDS.
 * **Workflow Orchestration:** Apache Airflow is used to schedule and manage the entire ETL and model training workflow, ensuring reliability and easy monitoring.
-* **Managed Model Training & Deployment:** Model training and deployment are handled by Amazon SageMaker, abstracting away the underlying infrastructure and providing a scalable, production-ready REST API endpoint for predictions.
+* **Managed Model Training & Deployment:** Model training and deployment are handled by Amazon SageMaker, a fully managed service that provides a scalable, production-ready REST API endpoint for predictions.
 * **Containerization:** The core application components are containerized with Docker, ensuring consistency between development and production environments.
 
 ## Tech Stack
@@ -86,6 +86,7 @@ graph TD
     style D fill:#316192,stroke:#333,stroke-width:2px,color:#fff
     style E fill:#C925D1,stroke:#333,stroke-width:2px
     style F fill:#252F3E,stroke:#FF9900,stroke-width:2px,color:#fff
+'''
 
 *(Diagram created using Mermaid. GitHub will automatically render this into a visual chart.)*
 
@@ -96,7 +97,7 @@ To run this project locally for development and testing, follow these steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/](https://github.com/)[Your-GitHub-Username]/energy-forecast-pipeline.git
+    git clone https://github.com/[Your-GitHub-Username]/energy-forecast-pipeline.git
     cd energy-forecast-pipeline
     ```
 
@@ -131,7 +132,7 @@ To run this project locally for development and testing, follow these steps:
 ## Usage
 
 1.  **Orchestration:** Once Airflow is running, you can access the Airflow UI (usually at `http://localhost:8080`) to monitor and manually trigger the `energy_demand_dag`.
-2.  **Prediction API:** After the pipeline has run successfully on AWS, the model will be deployed to a SageMaker endpoint. Predictions can be requested by sending a POST request with the required features in JSON format to the API Gateway URL.
+2.  **Prediction API:** After the pipeline has run successfully on AWS, the model will be deployed to a SageMaker endpoint. Predictions can be requested by sending a POST request with the required features in JSON format to the endpoint URL.
 
     Example using `curl`:
     ```bash
