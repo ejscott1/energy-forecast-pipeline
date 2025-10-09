@@ -47,46 +47,7 @@ This project aims to solve that problem by creating a robust, automated pipeline
 
 The pipeline follows a modern data architecture, moving data from ingestion to a final, queryable API endpoint.
 
-```mermaid
-graph TD
-    subgraph "Data Sources"
-        A[EIA API]
-    end
-
-    subgraph "AWS Cloud"
-        B[EC2 Instance]
-        C[Amazon S3 Bucket]
-        D[Amazon RDS - PostgreSQL]
-        E[Amazon SageMaker]
-        F[SageMaker Endpoint API]
-
-        subgraph "Orchestration on EC2"
-            B-- Runs --> G[Apache Airflow]
-        end
-
-        G -- 1. Ingests data --> A
-        A -- Raw Data --> C
-        G -- 2. Triggers ETL --> C
-        C -- Loads into --> D
-        G -- 3. Triggers Training Job --> E
-        E -- Reads training data from --> D
-        E -- 4. Deploys Model --> F
-    end
-
-    subgraph "End User"
-        H[User Application]
-    end
-
-    H -- 5. Requests Prediction --> F
-    F -- Returns Forecast --> H
-
-    style A fill:#FF9900,stroke:#333,stroke-width:2px
-    style B fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff
-    style C fill:#569A31,stroke:#333,stroke-width:2px
-    style D fill:#316192,stroke:#333,stroke-width:2px,color:#fff
-    style E fill:#C925D1,stroke:#333,stroke-width:2px
-    style F fill:#252F3E,stroke:#FF9900,stroke-width:2px,color:#fff
-'''
+![System Architecture Diagram](architecture.svg)
 
 ## Local Setup and Installation
 
@@ -149,5 +110,5 @@ This project serves as a strong foundation. Future enhancements could include:
 
 ## Contact
 
-- **Author:** [Your Name]
-- **LinkedIn:** [Link to Your LinkedIn Profile]
+- **Author:** Eric Scott
+- **LinkedIn:** https://www.linkedin.com/in/eric-scott-0b3a4ab9
