@@ -47,7 +47,7 @@ This project aims to solve that problem by creating a robust, automated pipeline
 
 The pipeline follows a modern data architecture, moving data from ingestion to a final, queryable API endpoint.
 
-![System Architecture Diagram](architecture.svg)
+![System Architecture Diagram](architecture.png)
 
 ## Local Setup and Installation
 
