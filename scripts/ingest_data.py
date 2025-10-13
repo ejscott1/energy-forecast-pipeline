@@ -11,10 +11,15 @@ load_dotenv()
 def get_db_connection():
     """Establishes a connection to the PostgreSQL database."""
     try:
+        # Load the password securely from the environment
+        db_password = os.getenv("DB_PASSWORD")
+        if not db_password:
+            raise ValueError("DB_PASSWORD not found in .env file!")
+
         conn = psycopg2.connect(
             dbname="energy_db",
             user="postgres",
-            password="***REMOVED***",  # IMPORTANT: Replace with your actual password
+            password=db_password,  # Use the variable here
             host="localhost",
             port="5432",
         )
@@ -73,8 +78,11 @@ if __name__ == "__main__":
             )
             print("Table 'raw_demand' is ready.")
 
-            insert_query = "INSERT INTO raw_demand (timestamp, demand_mwh) VALUES (%s, %s) ON CONFLICT (timestamp) DO NOTHING;"
-
+            insert_query = """
+                INSERT INTO raw_demand (timestamp, demand_mwh)
+                VALUES (%s, %s)
+                 ON CONFLICT (timestamp) DO NOTHING;
+            """
             data_to_insert = [
                 (pd.to_datetime(row["period"]), row["value"]) for row in eia_data
             ]
