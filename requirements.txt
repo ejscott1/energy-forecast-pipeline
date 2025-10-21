@@ -13,7 +13,9 @@ greenlet==3.2.4
 idna==3.11
     # via requests
 joblib==1.5.2
-    # via scikit-learn
+    # via
+    #   -r requirements.in
+    #   scikit-learn
 numpy==2.3.3
     # via
     #   pandas
