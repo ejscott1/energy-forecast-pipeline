@@ -8,6 +8,8 @@ certifi==2025.10.5
     # via requests
 charset-normalizer==3.4.3
     # via requests
+greenlet==3.2.4
+    # via sqlalchemy
 idna==3.11
     # via requests
 joblib==1.5.2
@@ -35,8 +37,12 @@ scipy==1.16.2
     # via scikit-learn
 six==1.17.0
     # via python-dateutil
+sqlalchemy==2.0.44
+    # via -r requirements.in
 threadpoolctl==3.6.0
     # via scikit-learn
+typing-extensions==4.15.0
+    # via sqlalchemy
 tzdata==2025.2
     # via pandas
 urllib3==2.5.0
